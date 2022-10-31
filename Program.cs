@@ -2,16 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ValidateUsingREGEX
+namespace Regix_Validate_Email
 {
-    internal class Program
+    class uc5_PASSWORD
     {
-        public static void Main(string[] args)
+
+        public static string reg = "[A-Za-z1-9]{8}";
+        public static bool validate_password(string word)
         {
-            Uc1_Regexfirstname pattern = new Uc1_Regexfirstname();
-            Console.WriteLine(pattern.validate_FirstName("Ani"));
+            return Regex.IsMatch(word, reg);
         }
+        static void CheckPswd()
+        {
+            Console.Write("Enter The Password:");
+            string pass = Console.ReadLine();
+
+            if (validate_password(pass))
+            {
+                Console.WriteLine("Valid");
+            }
+            else
+            {
+                Console.WriteLine("Invalid");
+            }
+        }
+        static void Main()
+        {
+            uc5_PASSWORD.CheckPswd();
+        }
+
     }
 }
